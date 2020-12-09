@@ -11,6 +11,8 @@ const {
 const del = require('del');
 const sourcemaps = require('gulp-sourcemaps');
 
+const concat = require('gulp-concat');
+
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
 const autoprefixer = require('autoprefixer');
@@ -61,7 +63,10 @@ function styles() {
 }
 
 function js() {
-  return src(paths.src + 'scripts/app.js')
+  return src([
+      paths.src + 'scripts/main.js'
+    ])
+    .pipe(concat('main.min.js'))
     .pipe(sourcemaps.init())
     .pipe(babel({
       presets: ["@babel/preset-env"]
@@ -81,7 +86,7 @@ function assets() {
 function watching(cb) {
   watch(paths.src + 'index.html', html);
   watch(paths.src + '**/*.scss', styles);
-  watch(paths.src + 'scripts/app.js', js);
+  watch(paths.src + 'scripts/main.js', js);
   watch(paths.src + 'assets/**/*', assets);
 
   cb();

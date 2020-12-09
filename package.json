@@ -2,7 +2,7 @@
   "name": "hw_gulp_starter",
   "version": "1.0.0",
   "description": "Gulp Starter",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,6 +16,7 @@
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.7.0",
     "gulp-postcss": "^9.0.0",
     "gulp-sass": "^4.1.0",
